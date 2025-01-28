@@ -1,0 +1,1 @@
+# mcvs-golang-project-root
