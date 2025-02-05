@@ -1,3 +1,3 @@
 module github.com/schubergphilis.com/mcvs-golang-project-root
 
-go 1.23.4
+go 1.23.6
