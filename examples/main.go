@@ -8,7 +8,8 @@ import (
 func main() {
 	projectRoot, err := projectroot.FindProjectRoot()
 	if err != nil {
-		log.WithFields(log.Fields{"err": err}).Fatal("unable to find project root")
+		log.WithError(err).Fatal("unable to find project root")
 	}
+
 	log.Infof("project root found at: %s", projectRoot)
 }

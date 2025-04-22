@@ -1,0 +1,69 @@
+# yamllint disable rule:line-length
+---
+version: "2"
+linters:
+  default: all
+  disable:
+    # err113 is disabled as it does not make any sense to use wrapped static
+    # errors as it contains superfluous escaped double quotes.
+    - err113
+    # exhaustruct is disabled as there are scenarios in this code base where a
+    # some keys of a struct should be empty while testing.
+    - exhaustruct
+    # gochecknoglobals is disabled as there are global errors and component
+    # test variables.
+    - gochecknoglobals
+    # lll is disabled as there too many long lines in this project. Sometimes
+    # function names and struct names that are returned are combined too long,
+    # other times the error messages that are being checked are exceeding 120
+    # chars. To stop the leakage, all team members have been requested to
+    # set a ruler in vscode for go code to 120 chars.
+    - lll
+    - noctx
+    # testpackage is disabled as it is a bad practice to make methods public to
+    # be able to test them.
+    - testpackage
+  settings:
+    depguard:
+      rules:
+        main:
+          files:
+            - "!**/*_a _file.go"
+          allow:
+            - $gostd
+            - github.com/schubergphilis/mcvs-golang-project-root/pkg/projectroot
+            - github.com/sirupsen/logrus
+          deny:
+            - pkg: log
+              desc: Use 'log "github.com/sirupsen/logrus"' instead
+            - pkg: github.com/pkg/errors
+              desc: Should be replaced by standard lib errors package
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    paths:
+      - internal/app/mcvs-scanner-cli/application/swagger
+      - third_party$
+      - builtin$
+      - examples$
+    rules:
+      - linters:
+          - funlen
+        path: _test\.go
+formatters:
+  enable:
+    - gci
+    - gofmt
+    - gofumpt
+    - goimports
+  exclusions:
+    generated: lax
+    paths:
+      - internal/app/mcvs-scanner-cli/application/swagger
+      - third_party$
+      - builtin$
+      - examples$

@@ -1,6 +1,7 @@
 package projectroot
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -10,7 +11,7 @@ import (
 func FindProjectRoot() (string, error) {
 	currentDir, err := os.Getwd()
 	if err != nil {
-		return "", err
+		return "", fmt.Errorf("unable to return path for the corresponding current working dir: %w", err)
 	}
 
 	for {
@@ -22,13 +23,15 @@ func FindProjectRoot() (string, error) {
 		if currentDir == parentDir {
 			break
 		}
+
 		currentDir = parentDir
 	}
 
-	return "", fmt.Errorf("project root not found")
+	return "", errors.New("project root not found")
 }
 
 func fileExists(path string) bool {
 	_, err := os.Stat(path)
+
 	return !os.IsNotExist(err)
 }
