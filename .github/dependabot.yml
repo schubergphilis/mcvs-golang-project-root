@@ -2,8 +2,8 @@
 version: 2
 updates:
   - package-ecosystem: github-actions
-    commit-message:
-      prefix: build(deps)
+    # commit-message:
+    #   prefix: build(deps)
     directory: /
     schedule:
       interval: weekly
@@ -12,8 +12,8 @@ updates:
         patterns:
           - "*"
   - package-ecosystem: gomod
-    commit-message:
-      prefix: build(deps)
+    # commit-message:
+    #   prefix: build(deps)
     directory: /
     schedule:
       interval: weekly
