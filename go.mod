@@ -1,6 +1,6 @@
 module github.com/schubergphilis/mcvs-golang-project-root
 
-go 1.25.4
+go 1.26.6
 
 require github.com/sirupsen/logrus v1.10.0
 
