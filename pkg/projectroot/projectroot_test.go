@@ -26,7 +26,6 @@ func requireNoGoModAbove(t *testing.T, dir string) {
 	}
 }
 
-//nolint:paralleltest // t.Chdir cannot be used in parallel tests.
 func TestFindProjectRoot(t *testing.T) {
 	tests := []struct {
 		name    string
