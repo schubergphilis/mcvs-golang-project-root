@@ -9,6 +9,6 @@ permissions:
   pull-requests: write
 jobs:
   mcvs-golang-action-taskfile-remote-url-ref-updater:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-slim
     steps:
       - uses: schubergphilis/mcvs-golang-action-taskfile-remote-url-ref-updater@ef6e715890ae653b3ab3805257aa7a2c1ab7e2a6 # v0.2.1
