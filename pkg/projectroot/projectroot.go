@@ -7,7 +7,10 @@ import (
 	"path/filepath"
 )
 
-// FindProjectRoot finds the root directory of the project.
+// FindProjectRoot finds the root directory of the project by walking up from
+// the working directory to the nearest directory containing a go.mod file.
+// The result is not a trust boundary: do not rely on it for security-sensitive
+// file access.
 func FindProjectRoot() (string, error) {
 	currentDir, err := os.Getwd()
 	if err != nil {
@@ -31,7 +34,7 @@ func FindProjectRoot() (string, error) {
 }
 
 func fileExists(path string) bool {
-	_, err := os.Stat(path)
+	info, err := os.Stat(path)
 
-	return !os.IsNotExist(err)
+	return err == nil && info.Mode().IsRegular()
 }
