@@ -35,10 +35,11 @@ linters:
           allow:
             - $gostd
             - github.com/schubergphilis/mcvs-golang-project-root/pkg/projectroot
-            - github.com/sirupsen/logrus
           deny:
-            - pkg: log
-              desc: Use 'log "github.com/sirupsen/logrus"' instead
+            - pkg: log$
+              desc: Use 'log/slog' instead
+            - pkg: github.com/sirupsen/logrus
+              desc: Use 'log/slog' instead
             - pkg: github.com/pkg/errors
               desc: Should be replaced by standard lib errors package
   exclusions:
