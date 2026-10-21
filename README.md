@@ -93,7 +93,7 @@ task remote:coverage
 
 The same checks run in CI via [.github/workflows/golang.yml](.github/workflows/golang.yml),
 which executes the unit, component and integration test suites, linting and the
-security scans (`golang-modules`, `grype` and `trivy`).
+security scans (`golang-modules` and `grype`).
 
 ## License
 

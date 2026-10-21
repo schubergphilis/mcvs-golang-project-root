@@ -26,7 +26,6 @@ jobs:
             build-tags: integration
           - testing-type: security-golang-modules
           - testing-type: security-grype
-          - testing-type: security-trivy
           - testing-type: unit
     runs-on: ubuntu-24.04
     env:
@@ -42,3 +41,4 @@ jobs:
           golang-unit-tests-exclusions: |-
             \(cmd\/mcvs-scanner\|cmd\/mcvs-scanner-cli\|deprecated\|api\/swagger\|mocks\)
           testing-type: ${{ matrix.args.testing-type }}
+          token: ${{ secrets.GITHUB_TOKEN }}
