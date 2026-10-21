@@ -39,6 +39,4 @@ jobs:
         with:
           code-coverage-expected: 0.0
           build-tags: ${{ matrix.args.build-tags }}
-          golang-unit-tests-exclusions: |-
-            \(cmd\/mcvs-scanner\|cmd\/mcvs-scanner-cli\|deprecated\|api\/swagger\|mocks\)
           testing-type: ${{ matrix.args.testing-type }}
