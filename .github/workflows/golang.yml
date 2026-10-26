@@ -35,7 +35,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: schubergphilis/mcvs-golang-action@968881c057a92b9e2ae5895383b31a06a79acd55 # v3.13.4
+      - uses: schubergphilis/mcvs-golang-action@14d7f6a9f2306a37c37fd438865c94b4a52d72ff # v3.13.6
         with:
           code-coverage-expected: 0.0
           build-tags: ${{ matrix.args.build-tags }}
